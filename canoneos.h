@@ -139,6 +139,9 @@ public:
 	uint16_t StartBulb();
 	uint16_t StopBulb();
 	uint16_t SwitchLiveView(bool on);
+	uint16_t RecOn();
+	uint16_t RecOff();
+	void RecToggle();
 	uint16_t MoveFocus(uint16_t step);
 	uint16_t SetProperty(uint16_t prop, uint32_t val);
 

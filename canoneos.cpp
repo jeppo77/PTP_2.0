@@ -222,6 +222,26 @@ uint16_t CanonEOS::SwitchLiveView(bool on)
 	return ptp_error;
 }
 
+uint16_t CanonEOS::RecOn()
+{
+	uint16_t	ptp_error = PTP_RC_GeneralError;
+	if ((ptp_error = SetProperty(EOS_DPC_VideoRecord, 4)) == PTP_RC_OK)
+	return ptp_error;
+}
+
+uint16_t CanonEOS::RecOff()
+{
+	uint16_t	ptp_error = PTP_RC_GeneralError;
+	if ((ptp_error = SetProperty(EOS_DPC_VideoRecord, 0)) == PTP_RC_OK)
+	return ptp_error;
+}
+
+void CanonEOS::RecToggle()
+{
+	if (SetProperty(EOS_DPC_VideoRecord, 0) != PTP_RC_OK)
+	  SetProperty(EOS_DPC_VideoRecord, 4);
+}
+
 uint16_t CanonEOS::MoveFocus(uint16_t step)
 {
 	uint16_t	ptp_error	= PTP_RC_GeneralError;
